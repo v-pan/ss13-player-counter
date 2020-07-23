@@ -1,8 +1,5 @@
-import jsdom from "jsdom";
-const JSDOM = jsdom.JSDOM;
-
 const main = async () => {
-    const doc = await JSDOM.fromURL("https://secure.byond.com/games/Exadv1/SpaceStation13")
+    const doc = new DOMParser().fromString(await fetch("https://secure.byond.com/games/Exadv1/SpaceStation13"), 'text/html')
     const entries = doc.window.document.getElementsByClassName("live_game_status")
 
     const results = []
